@@ -1,0 +1,36 @@
+/* Styles for tab labels */
+.mat-tab-label {
+    min-width: 120px !important;
+    padding: 0;
+    background-color: transparent;
+    font-weight: 700;
+    opacity: 1;
+    height: 38px !important;
+}
+
+.mat-tab-labels {
+    justify-content: space-evenly;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+    min-width: 140px !important;
+    padding: 0;
+    background-color: transparent;
+    font-weight: 700;
+    opacity: 1;
+    height: 38px !important;
+}
+
+.mat-tab-list{
+    flex-grow: 0 !important;
+}
+
+/* Styles for the ink bar */
+// .mat-ink-bar {
+//     background-color: green;
+// }
+
+#mat-tab-label-0-1{
+    visibility: hidden;
+}

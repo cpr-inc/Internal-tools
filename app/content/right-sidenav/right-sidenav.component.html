@@ -1,0 +1,23 @@
+<!-- Right Sidebar -->
+<div id="rightsidebar" class="right-sidebar">
+    <mat-tab-group>
+      <mat-tab label="表示色">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active in active" id="skins">
+              <ul class="demo-choose-skin" 
+                  style="margin: 0" 
+                  *ngFor="let theme of ThemeColors;let i = index;">
+  
+                <li (click)=SelectThemeColor(i) [class.active]="theme.active">
+                  <div [ngClass]="theme.classname"></div>
+                  <span>{{theme.colorname}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </mat-tab>
+      <!--↓は空だけど表示色タブを全体の幅の半分にするために必要-->
+      <mat-tab label=""></mat-tab>
+    </mat-tab-group>
+  </div>
+  <!-- #END# Right Sidebar -->  

@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container"
+	[style.marginTop.px]="mobile ? -6 : 0">
+	<!-- Left Sidebar -->
+
+	<mat-sidenav #sidenav
+		[opened]="SetLeftSidenavState()" 
+		[mode]="mobile ? 'over' : 'side'"
+		(opened)="LeftSidenvaStateEvent(true)"
+		(closed)="LeftSidenvaStateEvent(false)"
+		style="position: fixed;top: -4px;overflow: hidden;">
+		<app-left-sidenav></app-left-sidenav>
+	</mat-sidenav>
+
+	<!-- Right Sidebar -->
+	<mat-sidenav 
+		mode="over"
+		position="end"
+		[(opened)]="RightSideOpened"
+		(opened)="RightSidenavStateEvent(true)"
+		(closed)="RightSidenavStateEvent(false)"
+		style="position: fixed;overflow: hidden;">
+
+		<app-right-sidenav style="top: 75px;position: relative;">
+		</app-right-sidenav>
+		
+	</mat-sidenav>
+<!-- ==================================================================================================================================== -->
+	<mat-sidenav-content style="background-color: #e9e9e9">
+
+		<app-main-content></app-main-content>
+		
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

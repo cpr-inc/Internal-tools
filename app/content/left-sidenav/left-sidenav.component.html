@@ -1,0 +1,60 @@
+<!-- Left Sidebar -->
+
+<div id="leftsidebar" class="sidebar">
+
+  <!-- User Info -->
+  <div class="user-info tblMenu">
+    <!-- <div class="image"></div> -->
+
+    <ng-container *ngIf="!LoginStatus">
+      <div class="info-container">
+        <div>
+          <mat-icon style="font-size: 4.5rem; margin-left: 4.3rem">question_answer</mat-icon>
+        </div>
+      </div>
+      <div style="margin-top: 4rem;text-align: center">社内情報管理ツール</div>
+    </ng-container>
+
+    <div class="info-container" *ngIf="LoginStatus">
+      <div style="margin-top: 28%;"></div>
+      <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{(UserData | async)?.displayName}}</div>
+      <div class="email">{{(UserData | async)?.email}}</div>
+      <div class="dept">{{(UserData | async)?.department}}</div>
+      <div class="btn-group user-helper-dropdown">
+          <mat-icon [matMenuTriggerFor]="menu">keyboard_arrow_down</mat-icon>
+          <mat-menu lass="dropdown-menu pull-right" #menu="matMenu" xPosition="before">
+            <button mat-menu-item>パスワード変更</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
+      </div>
+    </div>
+  </div>
+  <!-- #User Info -->
+  <!-- Menu -->
+  <div class="menu">
+    <ul class="list">
+      <li class="header">メニュー</li>
+      <li *ngFor="let menu of menus" class="menulist">
+
+        <ng-container *ngIf="LoginStatus && menu.name != 'ログイン'">
+          <a (click)="ActiveItem(menu.name)" style="cursor: pointer;">
+            <mat-icon [class.ActiveMenu] = "menu.view">{{menu.icon}}</mat-icon>
+            <span [class.ActiveMenu] = "menu.view">{{menu.name}}</span>
+          </a>
+        </ng-container>
+        <ng-container *ngIf="!LoginStatus && menu.name != 'ログアウト'">
+          <a (click)="ActiveItem(menu.name)" style="cursor: pointer;">
+            <mat-icon [class.ActiveMenu] = "menu.view">{{menu.icon}}</mat-icon>
+            <span [class.ActiveMenu] = "menu.view">{{menu.name}}</span>
+          </a>
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  <!-- #Menu -->
+  <!-- Footer -->
+  <!-- #Footer -->
+</div>
+<!-- #END# Left Sidebar -->
+

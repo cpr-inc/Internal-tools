@@ -1,0 +1,30 @@
+<form [formGroup]="rForm" (ngSubmit)="reset(rForm.value)">
+
+    <div class="field form-group">
+      <h2 class="heading">パスワード変更</h2>
+      <div class="control">
+        <input 
+          type="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="新しいパスワードを入力">
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <h5 class="heading">もう一度入力してください。</h5>
+      <div class="control">
+        <input 
+          type="password"
+          formControlName="confirm_password"
+          class="form-control"
+          placeholder="もう一度入力してください">
+      </div>
+    </div>
+
+    <div class="field">
+      <input type="submit" class="button expanded" value="OK" [disabled]="!rForm.valid">
+    </div>
+
+</form>
+

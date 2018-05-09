@@ -1,0 +1,57 @@
+<!-- Basic Examples -->
+<div class="card">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header class="expansion-panel">
+        <mat-panel-title class="text-white">
+          タスク入力フォーム
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form class="form-horizontal">
+        <div class="row clearfix" style="margin-bottom: 1.5rem;">
+          <div class="col-md-2 form-control-label">
+            <label for="serial_no">タスク</label>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <mat-form-field class="form-line">
+                <input matInput [(ngModel)]="title" name="title" placeholder="タスク">
+              </mat-form-field>      
+            </div>
+          </div>
+        </div>
+        <div class="row clearfix">
+          <div class="col-md-2 form-control-label min-label">
+            <label for="broken_type">重要度</label>
+          </div>
+          <div class="col-md-2 min-dropbox">
+            <mat-select class="form-control show-tick text-center" placeholder="重要度" [(value)]="priority">
+              <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                {{ priority.viewValue }}
+              </mat-option>
+            </mat-select>
+            <div class="form-group"></div>
+          </div>
+          <div class="col-md-1 form-control-label min-label">
+            <label for="progress">作業状況</label>
+          </div>
+          <div class="col-md-2 min-dropbox">
+              <mat-select class="form-control show-tick text-center" placeholder="作業状況" [(value)]="state">
+                <mat-option *ngFor="let state of states" [value]="state.value">
+                  {{ state.viewValue }}
+                </mat-option>
+              </mat-select>
+          </div>
+          <div class="col-md-5">
+            <button mat-raised-button (click)="AddTask()" style="float: right;margin-right: 1vw">追加</button>
+          </div>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  </div>
+  
+  <app-table [tasks]='tasks' [ThemeColor]="ThemeColor" (event)="openDialog($event)" style="margin-bottom: 1rem"></app-table>
+  
+  <p class="footer">CPR TODO LIST</p>
+  

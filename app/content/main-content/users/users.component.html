@@ -1,0 +1,17 @@
+<div class="card">
+
+    <div style="margin-top: 0.5rem;margin-left: 1rem;">
+
+      <div style="float: left;">
+        <button mat-raised-button (click)="CreatUser()">新規</button>
+      </div>
+      <div>
+        <button style="margin-left: 5px;" mat-raised-button (click)="Edit()">編集</button>
+      </div>
+    </div>
+  
+
+    <app-usertable [users]="users" [ThemeColor]="ThemeColor" (SlectUid)="SetUid($event)"></app-usertable>
+
+</div>
+

@@ -1,0 +1,24 @@
+<!-- Page Loader -->
+<!-- <app-loader></app-loader> -->
+<!-- Overlay For Sidebars -->
+<!-- <div class="overlay"></div> -->
+<!-- #END# Overlay For Sidebars -->
+<!-- Search Bar -->
+<!-- <app-search-bar></app-search-bar> -->
+<!-- Top Bar -->
+
+<div [ngClass]="GetThemeColor()" *ngIf="ThemeColor; else loader">
+
+    <div class="container-all" [class.is-mobile]="mobile">
+
+        <app-header [mobile]="mobile"></app-header>
+
+        <app-content [mobile]="mobile"></app-content>
+
+    </div>
+    
+</div>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

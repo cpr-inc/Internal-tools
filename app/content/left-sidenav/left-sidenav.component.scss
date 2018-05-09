@@ -1,0 +1,26 @@
+
+
+.sidebar{
+    margin-top: 70px;
+    .is-mobile, &{
+        margin-top: 66px;
+    }
+}
+
+
+
+.material-icons{
+    line-height: inherit;
+}
+
+.menulist{
+    opacity: 0;
+    animation-name: show;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

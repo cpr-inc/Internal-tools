@@ -1,0 +1,15 @@
+.form-control{
+    border: none;
+}
+
+//アコーディオンのたたむマーク（効かないのでグローバルへ）
+.mat-expansion-indicator::after {
+    color: white;
+}
+
+.footer{
+    color: lightgray;
+    margin: 1.5rem 0 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
