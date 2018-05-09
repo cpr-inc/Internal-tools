@@ -1,0 +1,38 @@
+#{$theme_name} {
+    .navbar {
+      background-color: $bk_color; 
+    }
+    .navbar-brand {
+      color: $font_color;
+      &:hover, &:active, &:focus { color: $font_color; }
+    }
+  
+    .ActiveMenu{
+      color: $bk_color;
+    }
+  
+    .tblMenu, .btn-bg {
+      background-color: $bk_color;
+      color: $font_color;
+    }
+  
+   .expansion-panel {
+      background-color: $bk_color !important;
+    }
+  
+   .TableHeader{
+      background-color: $bk_color;
+    }
+  
+   .mat-raised-button{
+      background-color: $bk_color;
+      color: $font_color;
+    }
+    .modal-header{
+      background-color: $bk_color;
+      color: $font_color;
+    }
+    & .swal-btn--ok{
+      background-color: $bk_color !important;
+    }
+  }
