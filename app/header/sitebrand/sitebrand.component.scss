@@ -1,0 +1,22 @@
+.navbar-header{
+    color: white;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.menutoggleicon{
+    font-weight: bold;
+    padding-top: 2px;
+    cursor: pointer;
+}
+
+.toggle{
+    transform: scale(1);
+    transition: all 0.3s;
+}
+
+.navbar-brand{
+    font-size: 18px;
+    margin-left: 10px;
+}

@@ -1,0 +1,100 @@
+.table-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    padding: 1rem;
+    background-color: white;
+}
+
+.table-header {
+    // min-height: 64px;
+    // padding: 8px 24px 0;
+    // width: 20%;
+    // margin-left: 54rem;
+    width: 30%;
+    float: right;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-table {
+    overflow: auto;
+    border: 1px solid gainsboro;
+}
+
+/* Column Widths */
+@mixin mat-column {
+    align-self: stretch;
+    padding-top: 1rem;
+    text-align: center;
+}
+.mat-column-isEdit {
+    @include mat-column;
+    border-right: 1px solid white;
+    max-width: 64px;
+}
+
+.mat-column-isTrash {
+    @include mat-column;
+    max-width: 64px;
+}
+
+// .mat-column-displayName{
+//     @include mat-column;
+//     border-right: 1px solid white;
+//     max-width: 70px;
+// }
+
+.mat-column-email{
+    @include mat-column;
+    border-right: 1px solid white;
+}
+
+.mat-column-department {
+    @include mat-column;
+    border-right: 1px solid white;
+}
+
+.mat-column-displayName {
+    border-right: 1px solid white;
+    align-self: stretch;
+    padding-top: 1rem;
+    padding-left: 1.3rem;
+    font-weight: bold;
+}
+
+.mat-header-cell{
+    color: white;
+    padding-top: 1.3rem;
+}
+
+.mat-header-row, .mat-row{
+    padding: 0;
+}
+
+//mainへ
+.mat-sort-header-container{
+    margin-left: 0.8rem;
+}
+
+.add-row-color{
+    background-color: "#f9f9f9";
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+    overflow: auto;
+  }
+  
+  .mat-column-select {
+    overflow: visible;
+    @include mat-column;
+    border-right: 1px solid white;
+    max-width: 10%;
+  }

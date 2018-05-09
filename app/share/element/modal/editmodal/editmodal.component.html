@@ -1,0 +1,64 @@
+<div class="modal-header tblMenu" style="padding: 15px 15px 0;border-radius: 0">
+  <p>
+    タスク編集中
+  </p>
+  <mat-icon style="margin-left: 2%;">delete_sweep</mat-icon>
+  <mat-icon style="margin-left: auto;cursor: pointer;" (click)="onNoClick()">close</mat-icon>
+</div>
+<div class="text-center bg-primary text-white">
+  <h2 mat-dialog-title></h2>
+</div>
+<div class="text-center" style="margin: 1rem;">
+  <mat-dialog-content>
+      <div class="body" id="search_body">
+          <form class="form-horizontal">
+            <div class="row clearfix" style="margin:3.5rem 0 2rem 0;">
+              <div class="col-md-2 form-control-label">
+                <label for="serial_no">タスク</label>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <mat-form-field class="form-line">
+                    <input matInput [(ngModel)]="data.title" name="title" placeholder="タスク">
+                  </mat-form-field>      
+                </div>
+              </div>
+            </div>
+            <div class="row clearfix">
+              <div class="col-md-2 form-control-label">
+                <label for="broken_type">重要度</label>
+              </div>
+              <div class="col-md-2">
+                <mat-select class="form-control show-tick text-center" placeholder="重要度" [(value)]="data.priority">
+                  <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                    {{ priority.viewValue }}
+                  </mat-option>
+                </mat-select>
+                <div class="form-group"></div>
+              </div>
+              <div class="col-md-2 form-control-label">
+                <label for="progress">作業状況</label>
+              </div>
+              <div class="col-md-3">
+                  <mat-select class="form-control show-tick text-center" placeholder="作業状況" [(value)]="data.state">
+                    <mat-option *ngFor="let state of states" [value]="state.value">
+                      {{ state.viewValue }}
+                    </mat-option>
+                  </mat-select>
+              </div>
+              <div class="col-md-1">
+                <button mat-raised-button [mat-dialog-close]="[data.title, data.priority, data.state]" style="min-width: 80px;margin-left: 30px" (click)="AddTask()">OK</button>
+               <!-- <button type="button" class="btn btn-bg waves-effect" style="min-width: 80px;margin-left: 30px">追加</button> -->
+              </div>
+            </div>
+          </form>
+        </div>
+  </mat-dialog-content>
+  <!-- <mat-dialog-actions>
+    <div style="margin: auto">
+      <button mat-button [mat-dialog-close]="[data.title, data,priority, data.state]" cdkFocusInitial>Ok</button>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+    </div>
+  </mat-dialog-actions> -->
+</div>
+

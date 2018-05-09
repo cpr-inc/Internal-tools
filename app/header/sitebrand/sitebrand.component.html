@@ -1,0 +1,9 @@
+<div class="navbar-header">
+  <ng-container *ngIf="mobile">
+    <div (click)="LeftSidenavToggle()" class="float-left toggle menutoggleicon">
+      <mat-icon *ngIf="!LeftSidenavOpend">menu</mat-icon>
+      <mat-icon *ngIf="LeftSidenavOpend">arrow_back</mat-icon>
+    </div>
+  </ng-container>
+  <div class="navbar-brand">株式会社CPR</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="modal-header tblMenu" style="padding: 15px 15px 0">
+  <p>
+    削除アラート
+  </p>
+  <mat-icon style="margin-left: auto;cursor: pointer;" (click)="onNoClick()" >close</mat-icon>
+</div>
+
+<div class="text-center bg-primary text-white">
+  <h2 mat-dialog-title></h2>
+</div>
+<div class="text-center" style="margin: 1rem;">
+  <mat-dialog-content>
+    <p>このタスクを削除しますか？</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div style="margin: auto">
+      <button mat-raised-button [mat-dialog-close]="trash" >OK</button>
+      <button mat-raised-button (click)="onNoClick()" cdkFocusRegionstart>Cancel</button>
+    </div>
+  </mat-dialog-actions>
+</div>
+

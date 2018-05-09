@@ -1,0 +1,74 @@
+
+
+<div class="table-container mat-elevation-z8" style="box-shadow: none;">
+    <div>
+        <!-- <app-paginator [dataSource]="dataSource" style="width: 50%;"></app-paginator> -->
+
+        <mat-paginator #paginator
+              [pageSize]="10"
+              [pageSizeOptions]="[10, 25, 50, 100]"
+              style="float: left;">
+        </mat-paginator>
+
+        <div class="table-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="検索">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>選択</mat-header-cell>
+        <mat-cell *matCellDef="let row; let i = index">
+          <mat-radio-button  (click)="Change(i)"></mat-radio-button>
+          <!-- <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+          </mat-checkbox> -->
+        </mat-cell>
+      </ng-container>
+
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="displayName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> 社員名</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.displayName}}</mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> メールアドレス</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.email}}</mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> 部署</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.department}}</mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <!-- <ng-container matColumnDef="isEdit">
+            <mat-header-cell *matHeaderCellDef> 編集</mat-header-cell>
+            <mat-cell *matCellDef="let user">
+              <a style="cursor: pointer;"><mat-icon (click)="Edit(user.uid)">border_color</mat-icon></a> 
+            </mat-cell>
+        </ng-container> -->
+
+        <!-- Color Column -->
+        <!-- <ng-container matColumnDef="isTrash">
+            <mat-header-cell *matHeaderCellDef> 削除</mat-header-cell>
+            <mat-cell *matCellDef="let user;let i = index;">
+                <a style="cursor: pointer;">
+                    <mat-icon (click)="Delete(user.uid,i)">delete_sweep</mat-icon>
+                </a>
+            </mat-cell>
+        </ng-container> -->
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="TableHeader"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns let i = index;" [ngStyle]="AddRowColor(i)"></mat-row>
+        
+    </mat-table>
+
+</div>

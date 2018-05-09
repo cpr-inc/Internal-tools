@@ -1,0 +1,82 @@
+<div class="table-container mat-elevation-z8">
+    <div>
+        <!-- <app-paginator [dataSource]="dataSource" style="width: 50%;"></app-paginator> -->
+
+        <mat-paginator #paginator
+              [pageSize]="10"
+              [pageSizeOptions]="[10, 25, 50, 100]"
+              style="float: left;">
+        </mat-paginator>
+
+        <div class="table-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="検索">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="No">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> No.</mat-header-cell>
+            <mat-cell *matCellDef="let task"> {{task.No}}</mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> タイトル</mat-header-cell>
+            <mat-cell *matCellDef="let task; let i = index"
+                [ngClass]="taskcolor(task.priority)"
+                style="cursor: pointer;" (click)="Edit(task.key)" (mouseover)="openSnackBar()"> 
+                {{task.title}}
+            </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="priority">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> 重要度</mat-header-cell>
+            <mat-cell *matCellDef="let task"> {{task.priority}}</mat-cell>
+        </ng-container>
+
+        <!-- startdate Column -->
+        <ng-container matColumnDef="startdate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> 開始日</mat-header-cell>
+            <mat-cell *matCellDef="let task"> {{task.startdate}}</mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="deadline">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> 期限</mat-header-cell>
+            <mat-cell *matCellDef="let task"> {{task.deadline}}</mat-cell>
+        </ng-container>
+            
+        <!-- Color Column -->
+        <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> 作業状況</mat-header-cell>
+            <mat-cell *matCellDef="let task"> {{task.state}}</mat-cell>
+        </ng-container>
+
+        <!-- edit Column -->
+        <!-- <ng-container matColumnDef="isEdit">
+            <mat-header-cell *matHeaderCellDef> 編集</mat-header-cell>
+            <mat-cell *matCellDef="let task">
+              <a style="cursor: pointer;"><mat-icon (click)="Edit(task.key)">border_color</mat-icon></a> 
+            </mat-cell>
+        </ng-container> -->
+
+        <!-- delete Column -->
+        <!-- <ng-container matColumnDef="isTrash">
+            <mat-header-cell *matHeaderCellDef> 削除</mat-header-cell>
+            <mat-cell *matCellDef="let task;let i = index;">
+                <a style="cursor: pointer;">
+                    <mat-icon (click)="Delete(task.key,i)">delete_sweep</mat-icon>
+                </a>
+            </mat-cell>
+        </ng-container> -->
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="TableHeader"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns let i = index;" [ngStyle]="AddRowColor(i)"></mat-row>
+    </mat-table>
+
+</div>

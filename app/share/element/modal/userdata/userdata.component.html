@@ -1,0 +1,327 @@
+<div class="modal-content">
+    <div class="modal-header tblMenu" style="padding: 15px 15px 0">
+      <p>
+        ユーザ入力
+      </p>
+      <mat-icon style="margin-left: auto;cursor: pointer;" (click)="onNoClick()">close</mat-icon>
+    </div>
+
+    <div class="modal-body">
+      <table style="border: none; width: 100%;">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">
+              <div class="card">
+                <div class="body">
+                  <div class="dt_buttons" style="padding-bottom: 10px;">
+                    <button type="button" class="btn btn-bg waves-effect" style="width:80px;">保存</button>
+                    <button type="button" class="btn btn-bg waves-effect" style="width:80px;">削除</button>
+                    <button type="button" class="btn btn-bg waves-effect" data-target="#mailModelModal" data-toggle="modal">パスワードリセット</button>
+                    <span style="float: right; padding-right: 20px;">
+<!-- 															<button type="button" class="btn btn-bg waves-effect" style="width: 80px;" data-dismiss="modal">閉じる</button> -->
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="body">
+                    <div style="float:left;margin-top:20px;">ユーザ情報</div>
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <th class="tblMenu1" style="color:red;">社員ID※</th>
+                        <td>
+                          <input type="text" class="form-control" style="width:40%;">
+                          <div><span class="text-danger">必須項目です。</span></div>
+                        </td>
+<!-- 																<th class="tblMenu1">システム管理者権限</th> -->
+<!-- 																<td><span><input type="checkbox" id="registerSel1" name="registerSel" class="filled-in" /><label for="registerSel1"></label></span></td> -->
+                      </tr>
+                      <tr>
+                        <th class="tblMenu1" style="color:red;">スタッフ(漢字)※</th>
+                        <td colspan="3">
+                          <input type="text" class="form-control" style="width:40%;float: left;">&nbsp;<input type="text" class="form-control" style="width:40%;float: left;margin-left: 5px;">
+                          <div style="clear: both;"><span class="text-danger">スタッフ(姓)必須項目です。</span></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="tblMenu1">スタッフ(カナ)</th>
+                        <td colspan="3">
+                          <input type="text" class="form-control" style="width:40%;float: left;">&nbsp;<input type="text" class="form-control" style="width:40%;float: left;margin-left: 5px;">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="tblMenu1" style="color:red;">使用期間※</th>
+                        <td colspan="3">
+                          <div style="float: left;">
+                            <input type="text" class="datetimepicker form-control" style="width:80%;float: left; " data-dtp="dtp_xBbu8">
+                            <div class="datetimepicker-trigger" style="float: left; cursor: hand; cursor: pointer;margin-top:5px;">
+                              <i class="material-icons">event</i> <span class="icon-name"></span>
+                            </div>
+                          </div>
+                          <span style="float: left;margin-top:10px;">～</span>
+                          <div style="float: left;margin-left:20px;">
+                            <input type="text" class="datetimepicker form-control" style="width:80%;float: left; " data-dtp="dtp_G7lQj">
+                            <div class="datetimepicker-trigger" style="float: left; cursor: hand; cursor: pointer;margin-top:5px;">
+                              <i class="material-icons">event</i> <span class="icon-name"></span>
+                            </div>
+                          </div>
+                          <div style="clear: both;"><span class="text-danger">使用期間(開始)は必須項目です。</span></div>
+                          <div><span class="text-danger">使用期間(終了)は必須項目です。</span></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="tblMenu1">特殊ユーザ</th>
+                        <td colspan="3">
+                          <span><input type="checkbox" id="registerSel2" name="registerSel" class="filled-in"><label for="registerSel2" style="color:red;">※SIMS非連携ユーザ</label></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="tblMenu1">グループ災対窓口所属会社</th>
+                        <td colspan="3">
+                          <form>
+                            <mat-form-field>
+                              <mat-select>
+                                <mat-option value="予備1">予備1</mat-option>
+                                <mat-option value="予備2">予備2</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div>所属/連絡先</div>
+                  <table class="table table-bordered">
+                    <tbody><tr>
+                      <th class="tblMenu2" style="color:red;">災対メンバ※</th>
+                      <td><span><input type="checkbox" id="registerSel3" name="registerSel" class="filled-in"><label for="registerSel3">(ON：メンバー、OFF：メンバー以外)</label></span></td>
+                      <th class="tblMenu2">災対班コード</th>
+                      <td>
+                        <form>
+                          <mat-form-field>
+                            <mat-select>
+                              <mat-option value="情報統括">情報統括</mat-option>
+                              <mat-option value="サービス">サービス</mat-option>
+                              <mat-option value="設備">設備</mat-option>
+                              <mat-option value="資材">資材</mat-option>
+                              <mat-option value="お客様対応">お客様対応</mat-option>
+                              <mat-option value="総務厚生">総務厚生</mat-option>
+                              <mat-option value="広報">広報</mat-option>
+                              <mat-option value="セキュリティ">セキュリティ</mat-option>
+                              <mat-option value="社内システム">社内システム</mat-option>
+                              <mat-option value="本部長支援">本部長支援</mat-option>
+                              <mat-option value="コムＧ連携">コムＧ連携</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </form>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2">班の帰属区分</th>
+                      <td>
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                      <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2" style="color:red;">組織(第1階層)※</th>
+                      <td>
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                      <th class="tblMenu2">組織(第2階層)</th>
+                      <td>
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2">組織(第3階層)</th>
+                      <td>
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                      <th class="tblMenu2">組織(第4階層)</th>
+                      <td>
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2">組織(第5階層)</th>
+                      <td colspan="3">
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2">役職※</th>
+                      <td colspan="3">
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">予備1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">予備2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>予備1</option>
+                          <option>予備2</option>
+                        </select></div>
+                      </td>
+                    </tr>
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu2">担当住所</th> -->
+<!-- 															<td colspan="3"> -->
+<!-- 																<input type="text" class="form-control" style="width:100%;"/> -->
+<!-- 															</td> -->
+<!-- 														</tr> -->
+                    <tr>
+                      <th class="tblMenu2" style="color:red;">担当電話番号※</th>
+                      <td><input type="text" class="form-control" style="width:100%;"><div><span class="text-danger">必須項目です。</span></div></td>
+                      <th class="tblMenu2">携帯電話番号</th>
+                      <td><input type="text" class="form-control" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2">担当FAX番号</th>
+                      <td><input type="text" class="form-control" style="width:100%;"></td>
+                      <th class="tblMenu2">衛星携帯電話番号</th>
+                      <td><input type="text" class="form-control" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu2" style="color:red;">メールアドレス※</th>
+                      <td><input type="text" class="form-control" style="width:100%;"><div><span class="text-danger">必須項目です。</span></div></td>
+                      <th class="tblMenu2">携帯メールアドレス</th>
+                      <td><input type="text" class="form-control" style="width:100%;"></td>
+                    </tr>
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu2">緊急時連絡先(住所)</th> -->
+<!-- 															<td colspan="3"> -->
+<!-- 																<input type="text" class="form-control" style="width:100%;"/> -->
+<!-- 															</td> -->
+<!-- 														</tr> -->
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu2">緊急時連絡先(電話)</th> -->
+<!-- 															<td> -->
+<!-- 																<input type="text" class="form-control" style="width:100%;"/> -->
+<!-- 															</td> -->
+<!-- 															<th class="tblMenu2">緊急時連絡先(氏名)</th> -->
+<!-- 															<td> -->
+<!-- 																<input type="text" class="form-control" style="width:100%;"/> -->
+<!-- 															</td> -->
+<!-- 														</tr> -->
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu2">自宅現住所</th> -->
+<!-- 															<td colspan="3"> -->
+<!-- 																<input type="text" class="form-control" style="width:100%;"/> -->
+<!-- 															</td> -->
+<!-- 														</tr> -->
+                  </tbody></table>
+<!-- 													<div>データ管理権限</div> -->
+<!-- 													<table class="table table-bordered"> -->
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu3">部署管理者権限</th> -->
+<!-- 															<td colspan="3"> -->
+<!-- 																<select class="form-control show-tick"> -->
+<!-- 																	<option>‐</option> -->
+<!-- 																	<option>予備1</option> -->
+<!-- 																	<option>予備2</option> -->
+<!-- 																</select> -->
+<!-- 															</td> -->
+<!-- 														</tr> -->
+<!-- 													</table> -->
+                  <div>アプリケーション使用権限</div>
+                  <table class="table table-bordered">
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu4">危機管理掲示版編集フラグ</th> -->
+<!-- 															<td><span><input type="checkbox" id="registerSel4" name="registerSel" class="filled-in" /><label for="registerSel4"></label></span></td> -->
+<!-- 															<th class="tblMenu4">特別保守体制掲示版編集フラグ</th> -->
+<!-- 															<td><span><input type="checkbox" id="registerSel5" name="registerSel" class="filled-in" /><label for="registerSel5"></label></span></td> -->
+<!-- 														</tr> -->
+                    <tbody><tr>
+                      <th class="tblMenu4">メール連携使用フラグ</th>
+                      <td colspan="3">
+                        <div class="row clearfix">
+                          <div class="col-md-1" style="margin-bottom:0px;">
+                            <input type="checkbox" id="registerSel6" name="registerSel" class="filled-in"><label for="registerSel6"></label>
+                          </div>
+                          <div class="col-md-5" style="margin-bottom:0px;">
+                            <button type="button" class="btn btn-bg waves-effect" style="width:100px;" data-target="#mailModal" data-toggle="modal">端末初期化</button>
+                            <p>(userIdが発行されてから使用できます。)</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody></table>
+                  <table class="table table-bordered">
+                    <tbody><tr>
+                      <th class="tblMenu5">危機管理DB使用権限</th>
+                      <td colspan="3">
+                        <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="‐"><span class="filter-option pull-left">‐</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0"data-tokens="null"><span class="text">‐</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0"data-tokens="null"><span class="text">システム管理者</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0"data-tokens="null"><span class="text">組織管理者</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0"data-tokens="null"><span class="text">一般</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0"data-tokens="null"><span class="text">参照</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0"data-tokens="null"><span class="text">モバコネ</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select class="form-control show-tick" tabindex="-98">
+                          <option>‐</option>
+                          <option>システム管理者</option>
+                          <option>組織管理者</option>
+                          <option>一般</option>
+                          <option>参照</option>
+                          <option>モバコネ</option>
+                        </select></div>
+                      </td>
+                    </tr>
+                  </tbody></table>
+<!-- 													<table class="table table-bordered"> -->
+<!-- 														<tr> -->
+<!-- 															<th class="tblMenu6">作業情報共有掲示版</th> -->
+<!-- 															<td colspan="3"> -->
+<!-- 																<div class="row clearfix"> -->
+<!-- 																	<div class="col-md-1" style="margin-bottom:0px;"> -->
+<!-- 																		<input type="checkbox" id="registerSel8" name="registerSel" class="filled-in" /><label for="registerSel8"></label> -->
+<!-- 																	</div> -->
+<!-- 																	<div class="col-md-5" style="margin-bottom:0px;"> -->
+<!-- 																		<button type="button" class="btn btn-bg waves-effect" style="width:100px;">詳細変更</button> -->
+<!-- 																	</div> -->
+<!-- 																</div> -->
+<!-- 															</td> -->
+<!-- 														</tr> -->
+<!-- 													</table> -->
+
+                  <div>登録情報</div>
+                  <table class="table table-bordered">
+                    <tbody><tr>
+                      <th class="tblMenu8">登録日時 登録者</th>
+                      <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu8">登録理由</th>
+                      <td colspan="3"><input type="text" class="form-control" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu8">更新日時 更新者</th>
+                      <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                      <th class="tblMenu8">更新理由</th>
+                      <td colspan="3"><input type="text" class="form-control" style="width:100%;"></td>
+                    </tr>
+                  </tbody></table>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

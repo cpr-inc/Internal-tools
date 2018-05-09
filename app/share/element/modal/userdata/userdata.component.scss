@@ -1,0 +1,24 @@
+.tblMenu1, .tblMenu1 {
+    background-color: rgba(0, 58, 255, 0.39);
+}
+
+.tblMenu2, .tblMenu2 {
+    background-color: rgba(12, 210, 20, 0.46);
+}
+
+.tblMenu4, .tblMenu4 {
+    background-color: rgba(243, 99, 233, 0.23);
+}
+
+.tblMenu8, .tblMenu8 {
+    background-color: rgba(0, 188, 212, 0.31);
+}
+
+th {
+    width: 200px;
+}
+
+.table-bordered tbody tr td, .table-bordered tbody tr th {
+    padding: 8px;
+    border: 1px solid #eee;
+}
